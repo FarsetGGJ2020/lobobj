@@ -1,0 +1,13 @@
+Thank you for downloading this 8-bit basic sample pack.
+
+The sample pack contains 32 samples, 24bit 44kHz. Here is a short descriptions of the content:
+
+1. ARPEGGIO - the folder contains 4 samples, major and minor chords arpeggios and octaves arpeggios. Made with Atari Pokey chip A distortion.
+2. BASS - the folder contains 4 bass sounds, made with Atari Pokey chip A distortion and C distortion. 
+3. DRUMS - the folder contains 13 samples of basic percussion instruments.
+4. FX - the folder contains 7 FX samples.
+5. LEADS - the folder contains 4 lead sound samples. Made with Atari Pokey chip A distortion and some special technics allowing to achieve PWM-like effects.
+
+All samples have been recorded from real hardware, Atari 65XE. No post-processing applied.
+
+You can find more samples, loops and synth patches at the website micro-routine.com 
