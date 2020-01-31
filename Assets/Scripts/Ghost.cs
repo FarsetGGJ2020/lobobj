@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject deathParticleEffect;
+    [SerializeField] private GameObject mainGhost; 
+    private ParticleSystem currentActiveParticles;
 
-    // Update is called once per frame
-    void Update()
+    [ContextMenu("Die")]
+    public void Die()
     {
-        
+        Destroy(mainGhost);
+        GameObject deathParticles = Instantiate(deathParticleEffect, mainGhost.transform.position,Quaternion.identity);
     }
 }
