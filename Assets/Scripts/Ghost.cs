@@ -7,6 +7,9 @@ public class Ghost : MonoBehaviour
 {
 	[SerializeField] private NavMeshAgent agent;
 	[SerializeField] private Transform[] targets;
+    [SerializeField] private GameObject deathParticleEffect;
+    [SerializeField] private GameObject mainGhost; 
+    private ParticleSystem currentActiveParticles;
 
 	private void Awake()
 	{
@@ -27,4 +30,10 @@ public class Ghost : MonoBehaviour
 		Transform target = targets[index];
 		agent.destination = target.position;
 	}
+    [ContextMenu("Die")]
+    public void Die()
+    {
+        Destroy(mainGhost);
+        GameObject deathParticles = Instantiate(deathParticleEffect, mainGhost.transform.position,Quaternion.identity);
+    }
 }
