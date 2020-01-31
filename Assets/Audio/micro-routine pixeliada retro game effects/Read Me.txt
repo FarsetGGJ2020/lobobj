@@ -1,0 +1,14 @@
+Thank you for downloading this royalty free Retro Game Effects.
+
+The sample pack contains 32 samples, 24bit 44kHz. Here is a short descriptions of the content:
+
+1. ATMOSPHERIC - the folder contains 6 samples, can be used to build atmosphere in a game.
+2. EQUIPMENT - the folder contains 5 sounds than can be used for some tools, machines, engines etc.
+3. EXPLOSION - the folder contains 3 sounds of explosion effect.
+4. INTERACTION - the folder contains 4 sounds that can be used as a level complete sound or score sound.
+5. MOVEMENT - the folder contains 8 sounds for different sor of movements. 
+6. WEAPON - guns and lasers. Six of them.
+
+All samples have been created form scratch with Virus TI synthesizer.
+
+You can find more samples, loops and synth patches at the website micro-routine.com 

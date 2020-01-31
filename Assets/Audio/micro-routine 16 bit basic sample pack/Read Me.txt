@@ -1,0 +1,14 @@
+﻿Thank you for downloading this 16-bit basic sample pack.
+
+The sample pack contains 32 samples, 24bit 44kHz. Here is a short descriptions of the content:
+
+1. ARPEGGIO - the folder contains 7 samples, major and minor chords arpeggios and octaves arpeggios.
+2. BASS - the folder contains 7 bass sounds, created with regular square waveform and variosu versions of buzzer effect as well.
+3. DRUMS - the folder contains 14 samples of basic percussion instruments.
+4. LEADS - the folder contains 4 lead sound samples created with pure square waveform and so-called 'sid-voice' as well.
+
+All samples have been created with maxYMiser tracker and recorded from real hardware, Atari 1040 STE. No post-processing has been applied.
+
+Please don’t redistribute this sample pack. Post the link to this page, if you want to share them. Thanks!
+
+You can find more samples, loops and synth patches at the website www.micro-routine.com 
