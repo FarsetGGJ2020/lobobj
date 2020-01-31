@@ -1,18 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Ghost : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private NavMeshAgent agent;
+	[SerializeField] private Transform[] targets;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Awake()
+	{
+		SetTarget();
+	}
+
+	private void Update()
+	{
+		if (Vector3.Distance(agent.destination, transform.position) < 0.5F)
+		{
+			SetTarget();
+		}
+	}
+
+	private void SetTarget()
+	{
+		int index = Mathf.RoundToInt(Random.Range(0, targets.Length));
+		Transform target = targets[index];
+		agent.destination = target.position;
+	}
 }
