@@ -33,4 +33,13 @@ public static class GameEvents
             ScorePoints(i);
         }
     }
+
+    // public static ScoreEvent ScorePoints;
+    // public static void OnScorePoints(int i)
+    // {
+    //     if (ScorePoints != null)
+    //     {
+    //         ScorePoints(i);
+    //     }
+    // }
 }
