@@ -1819,22 +1819,22 @@ PrefabInstance:
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.23456976
+      value: 0.35355338
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.40821788
+      value: 0.35355338
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.10938167
+      value: -0.1464466
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8754261
+      value: 0.8535535
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
@@ -1844,12 +1844,12 @@ PrefabInstance:
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 30
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
@@ -1861,10 +1861,25 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 878852813}
+    - target: {fileID: 6239678410059280474, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
+        type: 3}
+      propertyPath: yMinLimit
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239678410059280474, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
+        type: 3}
+      propertyPath: yMaxLimit
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280476, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: near clip plane
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239678410059280476, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
+        type: 3}
+      propertyPath: orthographic size
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9985cd0e6ef6b489ebb5f55762cd55f5, type: 3}

@@ -11,6 +11,7 @@ public class Ghost : MonoBehaviour
 	[SerializeField] private GhostType ghostType;
 	[SerializeField] private Transform meshTransform;
 	[SerializeField] private GhostBullet bulletPrefab;
+	[SerializeField] private Rigidbody rigidbody;
 	private ParticleSystem currentActiveParticles;
 
 	private float fireCoolDown = 0F;
@@ -87,6 +88,7 @@ public class Ghost : MonoBehaviour
 			agent.isStopped = true;
 			return;
 		}
+		rigidbody.AddForce(-transform.forward * 5, ForceMode.Impulse);
 		hitCount++;
 		SetSpeed();
 	}
