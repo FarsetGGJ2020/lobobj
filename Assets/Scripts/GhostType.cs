@@ -9,4 +9,6 @@ public class GhostType : ScriptableObject
 	public float strength;
 	public DamageType weakness;
 	public float fireRate;
+	public float[] speeds;
+	public float hitWindow;
 }

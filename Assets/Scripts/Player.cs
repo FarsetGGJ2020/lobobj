@@ -14,8 +14,15 @@ public class Player : Singleton<Player>
 	public float damageWidth;
 	[SerializeField] private PlayerBullet bulletPrefab;
 	[SerializeField] private float fireRate = 2F;
+	[SerializeField] private LayerMask hooverCast;
+	[SerializeField] private float hooverRange = 2F;
+	[SerializeField] private Transform robotModel;
+	public AnimationCurve bobbingCurve;
+	[SerializeField] private AudioSource hooverAudio;
 
 	private float fireCoolDown = 0F;
+
+	private Vector3 RayOrigin => transform.position + Vector3.up;
 
 	private void Awake()
 	{
@@ -49,17 +56,64 @@ public class Player : Singleton<Player>
 
 	public void Update()
 	{
+		IncreaseTimers();
+		if (!SecondaryFire())
+		{
+			PrimaryFire();
+		}
+	}
+
+	private void IncreaseTimers()
+	{
 		fireCoolDown += Time.deltaTime;
+	}
+
+	private void PrimaryFire()
+	{
 		if (Input.GetMouseButton(0) && fireCoolDown >= fireRate)
 		{
 			Shoot();
 		}
+		robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length)) / 6, robotModel.position.z);
+
 	}
 
-	public void Shoot()
+	private bool SecondaryFire()
+	{
+		if (Input.GetMouseButton(1))
+		{
+			hooverAudio.Play();
+			Hoover();
+			return true;
+		}
+		hooverAudio.Stop();
+		return false;
+	}
+
+	private void Shoot()
 	{
 		fireCoolDown = 0;
 		PlayerBullet bullet = GameObject.Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+	}
+
+	private void Hoover()
+	{
+		Vector3 direction = Vector3.Normalize(WorldMouse.GetWorldMouse() - transform.position);
+		Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 0.5F);
+		if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, hooverRange, hooverCast))
+		{
+			Ghost ghost = hit.collider.GetComponent<Ghost>();
+			ghost.Die();
+		}
+	}
+
+	private void OnDrawGizmos()
+	{
+		// Gizmos.color = Color.blue;
+		// Gizmos.DrawSphere(WorldMouse.Position, 0.5F);
+		// Gizmos.DrawLine(WorldMouse.StartPositon, WorldMouse.Position);
+		// Gizmos.color = Color.red;
+		// Gizmos.DrawLine(transform.position, WorldMouse.Position);
 	}
 }
 

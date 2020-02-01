@@ -9,13 +9,9 @@ public class PlayerBullet : BaseBullet
 	protected override void Awake()
 	{
 		base.Awake();
-		target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Plane plane = new Plane(Vector3.zero, Vector3.forward, Vector3.right);
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		plane.Raycast(ray, out float distance);
-		target = target + ray.direction.normalized * distance;
-		target = Vector3.Scale(target, new Vector3(1, 0, 1)) + bulletType.heightOffset * Vector3.up;
-		direction = Vector3.Normalize(target - transform.position);
+		target = WorldMouse.GetWorldMouse();
+		target.y = bulletType.heightOffset;
+		direction = Vector3.Normalize(target - OffsetPosition);
 		rb.velocity = bulletType.velocityScalor * direction;
 		rb.WakeUp();
 	}
@@ -35,8 +31,7 @@ public class PlayerBullet : BaseBullet
 
 	private void OnDrawGizmos()
 	{
-		// Gizmos.color = Color.blue;
-		// Gizmos.DrawSphere(target, 0.5F);
-		// Gizmos.DrawLine(startPosition, startPosition + 20F * direction);
+		Gizmos.color = Color.blue;
+		Gizmos.DrawLine(OffsetOriginalPosition, OffsetOriginalPosition + 10 * direction);
 	}
 }
