@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7deeb0f13ba342efabe1e83a5f88ee1, type: 3}
   m_Name: PurpleGhost
   m_EditorClassIdentifier: 
-  speed: 0
-  strength: 0
-  weakness: 0
-  fireRate: 0
+  speed: 5
+  strength: 1
+  weakness: 1
+  fireRate: 2
