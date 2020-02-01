@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: PurpleGhost
-  m_EditorClassIdentifier: Assembly-CSharp::GhostType
-  speed: 3.5
-  strength: 0
-  weakness: 1
-  bulletSpeed: 0.025
-  fireRate: 5
+  m_Script: {fileID: 11500000, guid: 67124a09abc332e499f2764bb84c9179, type: 3}
+  m_Name: PlayerHealth
+  m_EditorClassIdentifier: 
+  value: 0
