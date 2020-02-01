@@ -66,7 +66,7 @@ Transform:
   - {fileID: 4079645780987264390}
   - {fileID: 1122863813564026370}
   m_Father: {fileID: 6314224529698746392}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1278555159812099598
 MeshFilter:
@@ -215,6 +215,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4388223476812724970}
   - {fileID: 1278555159812869678}
   - {fileID: 7557938043303041231}
   - {fileID: 3932898037865574822}
@@ -243,6 +244,8 @@ MonoBehaviour:
     m_Bits: 512
   range: 5
   damageWidth: 1
+  particleSpawnPoint: {fileID: 4388223476812724970}
+  hooverParticle: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
   bulletPrefab: {fileID: 1776399499297640290, guid: 131f212ab4a773b4ea1d9c8ca95d6650,
     type: 3}
   fireRate: 0.2
@@ -639,7 +642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6314224529698746392}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -51.3, y: 180, z: 0}
 --- !u!198 &7028841988899867255
 ParticleSystem:
@@ -5093,7 +5096,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6314224529698746392}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &187985577216215938
 AudioSource:
@@ -5191,6 +5194,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &5624692611516832177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4388223476812724970}
+  m_Layer: 14
+  m_Name: ParticleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4388223476812724970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5624692611516832177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6314224529698746392}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7894398279786574829
 GameObject:
   m_ObjectHideFlags: 0
