@@ -16,6 +16,8 @@ public class Player : Singleton<Player>
 	[SerializeField] private float fireRate = 2F;
 	[SerializeField] private LayerMask hooverCast;
 	[SerializeField] private float hooverRange = 2F;
+	[SerializeField] private Transform robotModel;
+	public AnimationCurve bobbingCurve;
 	[SerializeField] private AudioSource hooverAudio;
 
 	private float fireCoolDown = 0F;
@@ -72,6 +74,9 @@ public class Player : Singleton<Player>
 		{
 			Shoot();
 		}
+
+  		 robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length))/6, robotModel.position.z);
+
 	}
 
 	private bool SecondaryFire()
