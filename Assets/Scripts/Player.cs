@@ -72,10 +72,10 @@ public class Player : Singleton<Player>
 	{
 		if (Input.GetMouseButton(0) && fireCoolDown >= fireRate)
 		{
+			WorldMouse.GetWorldMouse();
 			Shoot();
 		}
-
-  		 robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length))/6, robotModel.position.z);
+		robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length)) / 6, robotModel.position.z);
 
 	}
 
@@ -106,6 +106,15 @@ public class Player : Singleton<Player>
 			Ghost ghost = hit.collider.GetComponent<Ghost>();
 			ghost.Die();
 		}
+	}
+
+	private void OnDrawGizmos()
+	{
+		// Gizmos.color = Color.blue;
+		// Gizmos.DrawSphere(WorldMouse.Position, 0.5F);
+		// Gizmos.DrawLine(WorldMouse.StartPositon, WorldMouse.Position);
+		// Gizmos.color = Color.red;
+		// Gizmos.DrawLine(transform.position, WorldMouse.Position);
 	}
 }
 

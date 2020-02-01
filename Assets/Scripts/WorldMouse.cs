@@ -6,14 +6,20 @@ public static class WorldMouse
 {
 	private static Plane plane = new Plane(Vector3.zero, Vector3.forward, Vector3.right);
 	private static Ray ray;
+	private static Vector3 startPosition;
 	private static Vector3 position;
+
+	public static Vector3 StartPositon => startPosition;
+	public static Vector3 Position => position;
 
 	public static Vector3 GetWorldMouse()
 	{
-		position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		startPosition = ray.origin;
 		plane.Raycast(ray, out float distance);
-		position = position + ray.direction.normalized * distance;
+		position = ray.origin + ray.direction * distance;
+		// Debug.DrawLine(position, position + 10 * Vector3.up, Color.yellow, 2F);
+		// Debug.DrawLine(ray.origin, ray.origin + distance * ray.direction, Color.magenta, 2F);
 		return position;
 	}
 }
