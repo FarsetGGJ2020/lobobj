@@ -19,4 +19,4 @@ MonoBehaviour:
   speeds:
   - 4
   - 3
-  hitWindow: 0
+  hitWindow: 5
