@@ -14,6 +14,9 @@ public abstract class BaseBullet : MonoBehaviour
 	protected Vector3 direction;
 	protected int bounceCount = 0;
 
+	protected Vector3 OffsetPosition => new Vector3(transform.position.x, bulletType.heightOffset, transform.position.z);
+	protected Vector3 OffsetOriginalPosition => new Vector3(startPosition.x, bulletType.heightOffset, startPosition.z);
+
 	protected virtual void Awake()
 	{
 		transform.position = new Vector3(transform.position.x, bulletType.heightOffset, transform.position.z);

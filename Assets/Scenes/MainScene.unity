@@ -1946,6 +1946,11 @@ PrefabInstance:
       propertyPath: yMaxLimit
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 6239678410059280474, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
+        type: 3}
+      propertyPath: defaultDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280476, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: near clip plane
@@ -1960,6 +1965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: far clip plane
       value: 313.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239678410059280476, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
+        type: 3}
+      propertyPath: far clip plane
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9985cd0e6ef6b489ebb5f55762cd55f5, type: 3}
