@@ -15,3 +15,5 @@ MonoBehaviour:
   speed: 7
   strength: 0
   weakness: 0
+  bulletSpeed: 0.025
+  fireRate: 3
