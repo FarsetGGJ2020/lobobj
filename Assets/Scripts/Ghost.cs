@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
 public class Ghost : MonoBehaviour
 {
 	[SerializeField] private NavMeshAgent agent;
@@ -16,32 +15,82 @@ public class Ghost : MonoBehaviour
 	private ParticleSystem currentActiveParticles;
 
 	private float fireCoolDown = 0F;
+	private int hitCount = 0;
+	private float hitTimer;
+	private bool stunned = false;
 
 	private void Awake()
 	{
 		SetTarget();
-		agent.speed = ghostType.speed;
+		SetSpeed();
 		fireCoolDown = Random.Range(0F, ghostType.fireRate);
+	}
+
+	private void SetSpeed()
+	{
+		agent.speed = ghostType.speeds[hitCount];
 	}
 
 	private void Update()
 	{
+		IncreaseTimers();
+		Move();
+		Fire();
+	}
+
+	private void IncreaseTimers()
+	{
 		fireCoolDown += Time.deltaTime;
+		if (hitCount > 0)
+		{
+			hitTimer += Time.deltaTime;
+		}
+	}
+
+	private void Move()
+	{
+		if (stunned)
+		{
+			if (!(hitTimer > ghostType.hitWindow))
+			{
+				return;
+			}
+			stunned = false;
+			agent.isStopped = false;
+			hitCount = 0;
+			hitTimer = 0F;
+			SetSpeed();
+		}
 		meshTransform.LookAt(Player.Instance.transform);
 		if (Vector3.Distance(agent.destination, transform.position) < 0.5F)
 		{
 			SetTarget();
 		}
-		Fire();
 	}
 
 	public void Damage(float damage)
 	{
-
+		hitTimer = 0F;
+		if (stunned)
+		{
+			return;
+		}
+		if (hitCount > ghostType.speeds.Length)
+		{
+			stunned = true;
+			agent.isStopped = true;
+			return;
+		}
+		hitCount++;
+		SetSpeed();
 	}
 
 	private void Fire()
 	{
+		if (stunned)
+		{
+			return;
+		}
 		if (fireCoolDown >= ghostType.fireRate)
 		{
 			fireCoolDown = 0F;
@@ -61,6 +110,5 @@ public class Ghost : MonoBehaviour
 		agent.isStopped = true;
 		Destroy(mainGhost);
 		GameObject deathParticles = Instantiate(deathParticleEffect, mainGhost.transform.position, Quaternion.identity);
-
 	}
 }
