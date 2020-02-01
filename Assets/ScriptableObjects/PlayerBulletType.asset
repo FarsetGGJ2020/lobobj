@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7403e9bf96b17414191063760716c819, type: 3}
-  m_Name: GhostBuletType
+  m_Name: PlayerBulletType
   m_EditorClassIdentifier: 
   heightOffset: 1
-  velocityScalor: 6
+  velocityScalor: 15
   lifeTime: 5
   damage: 5
   bounces: 1
