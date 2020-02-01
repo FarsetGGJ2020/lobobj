@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 581303943114265718}
   - component: {fileID: 581303943114265717}
   - component: {fileID: 496998966654363925}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -60,6 +60,9 @@ MonoBehaviour:
     m_Bits: 512
   range: 5
   damageWidth: 1
+  bulletPrefab: {fileID: 1776399499297640290, guid: 131f212ab4a773b4ea1d9c8ca95d6650,
+    type: 3}
+  fireRate: 0.2
 --- !u!95 &581303943114265720
 Animator:
   serializedVersion: 3
@@ -191,7 +194,7 @@ GameObject:
   - component: {fileID: 581303943208163446}
   - component: {fileID: 581303943208163449}
   - component: {fileID: 581303943208163448}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +273,7 @@ GameObject:
   - component: {fileID: 581303943841486433}
   - component: {fileID: 581303943841486435}
   - component: {fileID: 581303943841486434}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PlayerMovementEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

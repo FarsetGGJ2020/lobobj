@@ -12,6 +12,10 @@ public class Player : Singleton<Player>
 	public LayerMask enemyLayers;
 	public float range;
 	public float damageWidth;
+	[SerializeField] private PlayerBullet bulletPrefab;
+	[SerializeField] private float fireRate = 2F;
+
+	private float fireCoolDown = 0F;
 
 	private void Awake()
 	{
@@ -45,7 +49,8 @@ public class Player : Singleton<Player>
 
 	public void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		fireCoolDown += Time.deltaTime;
+		if (Input.GetMouseButton(0) && fireCoolDown >= fireRate)
 		{
 			Shoot();
 		}
@@ -53,14 +58,8 @@ public class Player : Singleton<Player>
 
 	public void Shoot()
 	{
-		Vector3 endpoint = transform.position + transform.forward * range;
-		Debug.DrawLine(transform.position, endpoint, Color.white, 1000f);
-		RaycastHit hit;
-		if (Physics.CapsuleCast(transform.position, endpoint, damageWidth, transform.forward, out hit, 5, enemyLayers))
-		{
-			Ghost enemy = hit.collider.GetComponent<Ghost>();
-			enemy.Die();
-		}
+		fireCoolDown = 0;
+		PlayerBullet bullet = GameObject.Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 	}
 }
 

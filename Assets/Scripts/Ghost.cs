@@ -35,6 +35,11 @@ public class Ghost : MonoBehaviour
 		Fire();
 	}
 
+	public void Damage(float damage)
+	{
+
+	}
+
 	private void Fire()
 	{
 		if (fireCoolDown >= ghostType.fireRate)
