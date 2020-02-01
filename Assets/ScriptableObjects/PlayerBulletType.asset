@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBulletType
   m_EditorClassIdentifier: 
   heightOffset: 1
-  velocityScalor: 60
+  velocityScalor: 15
   lifeTime: 5
   damage: 5
   bounces: 1
