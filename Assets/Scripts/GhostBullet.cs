@@ -2,23 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostBullet : MonoBehaviour
+public class GhostBullet : BaseBullet
 {
 	[SerializeField] private Rigidbody rb;
-	[SerializeField] private float heightOffset;
-	[SerializeField] private BulletType bulletType;
 
-	private float life = 0F;
-	private Vector3 startPosition;
-	private Vector3 target;
-	private Vector3 direction;
-	private int bounceCount = 0;
-
-	private void Awake()
+	protected override void Awake()
 	{
-		transform.position = new Vector3(transform.position.x, heightOffset, transform.position.z);
-		startPosition = transform.position;
-		target = Vector3.Scale(Player.Instance.transform.position, new Vector3(1, 0, 1)) + heightOffset * Vector3.up;
+		base.Awake();
+		target = Vector3.Scale(Player.Instance.transform.position, new Vector3(1, 0, 1)) + bulletType.heightOffset * Vector3.up;
 		direction = Vector3.Normalize(target - transform.position);
 		rb.velocity = bulletType.velocityScalor * direction;
 		rb.WakeUp();
@@ -31,16 +22,6 @@ public class GhostBullet : MonoBehaviour
 			GameEvents.PlayerDamage(bulletType.damage);
 		}
 		Destroy(gameObject);
-	}
-
-	private void Update()
-	{
-		life += Time.deltaTime;
-
-		if (life >= bulletType.lifeTime)
-		{
-			Destroy(gameObject);
-		}
 	}
 
 	private void OnDrawGizmos()
