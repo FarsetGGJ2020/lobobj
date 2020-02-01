@@ -8,7 +8,6 @@ public class Ghost : MonoBehaviour
 	[SerializeField] private NavMeshAgent agent;
 	[SerializeField] private Transform[] targets;
 	[SerializeField] private GameObject deathParticleEffect;
-	[SerializeField] private GameObject mainGhost;
 	[SerializeField] private GhostType ghostType;
 	[SerializeField] private Transform meshTransform;
 	[SerializeField] private GhostBullet bulletPrefab;
@@ -17,7 +16,7 @@ public class Ghost : MonoBehaviour
 	private float fireCoolDown = 0F;
 	private int hitCount = 0;
 	private float hitTimer;
-	private bool stunned = false;
+	[SerializeField] private bool stunned = false;
 
 	private void Awake()
 	{
@@ -28,7 +27,14 @@ public class Ghost : MonoBehaviour
 
 	private void SetSpeed()
 	{
-		agent.speed = ghostType.speeds[hitCount];
+		try
+		{
+			agent.speed = ghostType.speeds[hitCount];
+		}
+		catch (System.Exception e)
+		{
+			Debug.Log("WRONG INDEX: " + hitCount + "\n" + e);
+		}
 	}
 
 	private void Update()
@@ -104,11 +110,18 @@ public class Ghost : MonoBehaviour
 		Transform target = targets[index];
 		agent.destination = target.position;
 	}
+
 	[ContextMenu("Die")]
 	public void Die()
 	{
+		if (!stunned)
+		{
+			return;
+		}
+		stunned = true;
 		agent.isStopped = true;
-		Destroy(mainGhost);
-		GameObject deathParticles = Instantiate(deathParticleEffect, mainGhost.transform.position, Quaternion.identity);
+		GameObject deathParticles = Instantiate(deathParticleEffect, meshTransform.transform.position, Quaternion.identity);
+		meshTransform.gameObject.SetActive(false);
+		Destroy(gameObject);
 	}
 }

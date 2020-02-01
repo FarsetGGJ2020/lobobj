@@ -96,6 +96,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1776399499297640290, guid: 131f212ab4a773b4ea1d9c8ca95d6650,
     type: 3}
   fireRate: 0.2
+  hooverCast:
+    serializedVersion: 2
+    m_Bits: 512
+  hooverRange: 2
 --- !u!95 &8835998311043316317
 Animator:
   serializedVersion: 3

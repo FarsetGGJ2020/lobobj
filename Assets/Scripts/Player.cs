@@ -14,8 +14,12 @@ public class Player : Singleton<Player>
 	public float damageWidth;
 	[SerializeField] private PlayerBullet bulletPrefab;
 	[SerializeField] private float fireRate = 2F;
+	[SerializeField] private LayerMask hooverCast;
+	[SerializeField] private float hooverRange = 2F;
 
 	private float fireCoolDown = 0F;
+
+	private Vector3 RayOrigin => transform.position + Vector3.up;
 
 	private void Awake()
 	{
@@ -49,17 +53,50 @@ public class Player : Singleton<Player>
 
 	public void Update()
 	{
+		IncreaseTimers();
+		if (!SecondaryFire())
+		{
+			PrimaryFire();
+		}
+	}
+
+	private void IncreaseTimers()
+	{
 		fireCoolDown += Time.deltaTime;
+	}
+
+	private void PrimaryFire()
+	{
 		if (Input.GetMouseButton(0) && fireCoolDown >= fireRate)
 		{
 			Shoot();
 		}
 	}
 
-	public void Shoot()
+	private bool SecondaryFire()
+	{
+		if (Input.GetMouseButton(1))
+		{
+			Hoover();
+			return true;
+		}
+		return false;
+	}
+
+	private void Shoot()
 	{
 		fireCoolDown = 0;
 		PlayerBullet bullet = GameObject.Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+	}
+
+	private void Hoover()
+	{
+		Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * transform.forward, Color.red, 0.5F);
+		if (Physics.Raycast(RayOrigin, transform.forward, out RaycastHit hit, hooverRange, hooverCast))
+		{
+			Ghost ghost = hit.collider.GetComponent<Ghost>();
+			ghost.Die();
+		}
 	}
 }
 
