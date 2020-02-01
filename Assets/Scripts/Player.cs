@@ -18,6 +18,7 @@ public class Player : Singleton<Player>
 	[SerializeField] private float hooverRange = 2F;
 	[SerializeField] private Transform robotModel;
 	public AnimationCurve bobbingCurve;
+	[SerializeField] private AudioSource hooverAudio;
 
 	private float fireCoolDown = 0F;
 
@@ -82,9 +83,11 @@ public class Player : Singleton<Player>
 	{
 		if (Input.GetMouseButton(1))
 		{
+			hooverAudio.Play();
 			Hoover();
 			return true;
 		}
+		hooverAudio.Stop();
 		return false;
 	}
 
