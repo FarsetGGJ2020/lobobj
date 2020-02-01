@@ -50,7 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8dd0fd340d7a4468bb6b4864804c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
+  health: {fileID: 11400000, guid: 0f99340821cd1fd4cbd1b98dd31affd0, type: 2}
+  startingHealth: 100
   playerName: 
   movementParticles: {fileID: 581303943841486435}
   damageType: 0
