@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+        GameEvents.GameEnd += OnGameEnd;
+        SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy() 
     {
+        GameEvents.GameEnd -= OnGameEnd;
+    }
 
+    private void OnGameEnd()
+    {
+        SceneManager.LoadScene(3, LoadSceneMode.Single);
     }
 }
