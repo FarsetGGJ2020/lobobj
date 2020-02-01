@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c7deeb0f13ba342efabe1e83a5f88ee1, type: 3}
   m_Name: GreenGhost
-  m_EditorClassIdentifier: Assembly-CSharp::GhostType
-  speed: 7
+  m_EditorClassIdentifier: 
+  speed: 0
   strength: 0
   weakness: 0
-  bulletSpeed: 0.025
-  fireRate: 3
+  fireRate: 0
