@@ -2600,6 +2600,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 581303943114265715, guid: 9184c3654fa2e4bbb818a651d6fe47c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 8741990275658190410, guid: 9184c3654fa2e4bbb818a651d6fe47c0,
         type: 3}
       propertyPath: m_Name
@@ -2694,6 +2699,16 @@ PrefabInstance:
         type: 3}
       propertyPath: damageWidth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 581303943208163445, guid: 9184c3654fa2e4bbb818a651d6fe47c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 581303943841486432, guid: 9184c3654fa2e4bbb818a651d6fe47c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9184c3654fa2e4bbb818a651d6fe47c0, type: 3}

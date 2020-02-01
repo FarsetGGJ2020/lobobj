@@ -168,6 +168,8 @@ MonoBehaviour:
   mainGhost: {fileID: 6341690637091862633}
   ghostType: {fileID: 11400000, guid: bf141aacf30564ab0819538feb6cbe07, type: 2}
   meshTransform: {fileID: 6735685638366602742}
+  bulletPrefab: {fileID: 4847659497378006730, guid: 0828c8c0acc3304419f928325d6912a4,
+    type: 3}
 --- !u!195 &1649510430
 NavMeshAgent:
   m_ObjectHideFlags: 0
