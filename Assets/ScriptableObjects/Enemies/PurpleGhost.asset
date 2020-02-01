@@ -17,7 +17,6 @@ MonoBehaviour:
   weakness: 1
   fireRate: 2
   speeds:
-  - 5
+  - 4
   - 3
-  - 1
-  hitWindow: 3
+  hitWindow: 0

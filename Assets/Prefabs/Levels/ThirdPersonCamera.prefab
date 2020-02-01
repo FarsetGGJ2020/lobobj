@@ -57,11 +57,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.03
+  near clip plane: -10
   far clip plane: 300
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -109,8 +109,8 @@ MonoBehaviour:
   smoothFollow: 10
   xMouseSensitivity: 1
   yMouseSensitivity: 1
-  yMinLimit: 30
-  yMaxLimit: 30
+  yMinLimit: 45
+  yMaxLimit: 45
   indexList: 0
   indexLookPoint: 0
   offSetPlayerPivot: 0
