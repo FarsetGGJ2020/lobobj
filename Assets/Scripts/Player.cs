@@ -72,7 +72,6 @@ public class Player : Singleton<Player>
 	{
 		if (Input.GetMouseButton(0) && fireCoolDown >= fireRate)
 		{
-			WorldMouse.GetWorldMouse();
 			Shoot();
 		}
 		robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length)) / 6, robotModel.position.z);

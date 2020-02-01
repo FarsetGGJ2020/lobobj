@@ -9,9 +9,6 @@ public static class WorldMouse
 	private static Vector3 startPosition;
 	private static Vector3 position;
 
-	public static Vector3 StartPositon => startPosition;
-	public static Vector3 Position => position;
-
 	public static Vector3 GetWorldMouse()
 	{
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
