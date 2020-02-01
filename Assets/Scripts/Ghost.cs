@@ -75,7 +75,7 @@ public class Ghost : MonoBehaviour
 		{
 			return;
 		}
-		if (hitCount > ghostType.speeds.Length)
+		if (hitCount >= ghostType.speeds.Length)
 		{
 			stunned = true;
 			agent.isStopped = true;
