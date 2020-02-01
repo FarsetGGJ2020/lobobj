@@ -9,7 +9,7 @@ public class PlayerBullet : BaseBullet
 	protected override void Awake()
 	{
 		base.Awake();
-		target = WorldMouse.Position;
+		target = WorldMouse.GetWorldMouse();
 		target.y = bulletType.heightOffset;
 		direction = Vector3.Normalize(target - OffsetPosition);
 		rb.velocity = bulletType.velocityScalor * direction;
