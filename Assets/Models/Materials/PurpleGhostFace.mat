@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GhostFace
+  m_Name: PurpleGhostFace
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _DETAIL_MULX2 _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 1
@@ -90,7 +90,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0.1882353}
     - _EmisColor: {r: 0.2, g: 0.2, b: 0.2, a: 0}
-    - _EmissionColor: {r: 0, g: 0.69878787, b: 0.27729678, a: 1}
+    - _EmissionColor: {r: 0.42352942, g: 0, b: 0.49411765, a: 1}
     - _OutlineColor: {r: 0.06119311, g: 0.934, b: 0.9182896, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _TintColor: {r: 0.41551724, g: 0.5, b: 0.48884827, a: 0.397}

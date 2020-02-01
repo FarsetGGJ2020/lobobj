@@ -16,7 +16,5 @@ MonoBehaviour:
   strength: 2
   weakness: 0
   fireRate: 2
-  speeds:
-  - 2
-  - 1
+  speeds: []
   hitWindow: 0
