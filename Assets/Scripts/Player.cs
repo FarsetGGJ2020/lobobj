@@ -10,6 +10,7 @@ public class Player : Singleton<Player>
     public DamageType damageType;
     public LayerMask enemyLayers;
     public float range;
+    public float damageWidth;
 
     public void StartMoving()
     {
@@ -31,8 +32,10 @@ public class Player : Singleton<Player>
 
     public void Shoot()
     {
+        Vector3 endpoint = transform.position + transform.forward*range;
+        Debug.DrawLine(transform.position, endpoint, Color.white, 1000f);
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, Vector3.forward, out hit, range,enemyLayers))
+        if(Physics.CapsuleCast(transform.position,endpoint,damageWidth,transform.forward, out hit,5,enemyLayers))
         {
             Ghost enemy = hit.collider.GetComponent<Ghost>();
             enemy.Die();

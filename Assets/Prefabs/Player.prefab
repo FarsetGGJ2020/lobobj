@@ -56,8 +56,9 @@ MonoBehaviour:
   damageType: 0
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   range: 5
+  damageWidth: 1
 --- !u!95 &581303943114265720
 Animator:
   serializedVersion: 3
