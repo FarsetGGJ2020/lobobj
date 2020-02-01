@@ -64,13 +64,3 @@ public class Ghost : MonoBehaviour
 
 	}
 }
-
-
-[CreateAssetMenu(menuName = "Enemies/Ghost Type")]
-public class GhostType : ScriptableObject
-{
-	public float speed;
-	public float strength;
-	public DamageType weakness;
-	public float fireRate;
-}
