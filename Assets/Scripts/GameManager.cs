@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     void Awake()
     {
         GameEvents.GameEnd += OnGameEnd;
+        Debug.Log("Wakey Wakey");
         SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 
