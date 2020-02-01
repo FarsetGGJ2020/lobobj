@@ -16,6 +16,7 @@ public class Player : Singleton<Player>
 	[SerializeField] private float fireRate = 2F;
 	[SerializeField] private LayerMask hooverCast;
 	[SerializeField] private float hooverRange = 2F;
+	[SerializeField] private AudioSource hooverAudio;
 
 	private float fireCoolDown = 0F;
 
@@ -77,9 +78,11 @@ public class Player : Singleton<Player>
 	{
 		if (Input.GetMouseButton(1))
 		{
+			hooverAudio.Play();
 			Hoover();
 			return true;
 		}
+		hooverAudio.Stop();
 		return false;
 	}
 
