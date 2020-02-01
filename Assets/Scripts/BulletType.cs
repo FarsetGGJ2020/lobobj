@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Projectiles/Bullet Type", fileName = "New BulletType")]
 public class BulletType : ScriptableObject
 {
+	public float heightOffset;
 	public float velocityScalor;
 	public float lifeTime;
 	public float damage;

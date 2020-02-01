@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7403e9bf96b17414191063760716c819, type: 3}
   m_Name: GhostBuletType
   m_EditorClassIdentifier: 
+  heightOffset: 1
   velocityScalor: 6
   lifeTime: 5
   damage: 5
+  bounces: 1
