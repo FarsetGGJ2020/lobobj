@@ -1,16 +1,14 @@
 fileFormatVersion: 2
-guid: 82b55d865f09c4311ab3642f3edbc81a
+guid: 0e7bc9cd3d545406884146b3702c8333
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: metal
-    2100002: legs
-    2100004: metal.001
+    2100000: wall_flat
     2300000: //RootNode
     3300000: //RootNode
-    4300000: character
+    4300000: wall_stairs
   externalObjects: {}
   materials:
     importMaterials: 1
