@@ -38,6 +38,8 @@ public class Player : Singleton<Player>
 
 	private GameObject hooverholder;
 
+	[SerializeField] private GameObject interactCanvas;
+
 	private void Awake()
 	{
 		health.value = startingHealth;
@@ -136,14 +138,19 @@ public class Player : Singleton<Player>
 
 	private void EmptyHoover()
 	{
-		if (Input.GetKeyDown(KeyCode.E))
+		Vector3 direction = Vector3.Normalize(WorldMouse.GetWorldMouse() - transform.position);
+		if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, emptyRange, emptyCast) && capacity > 0)
 		{
-			Vector3 direction = Vector3.Normalize(WorldMouse.GetWorldMouse() - transform.position);
-			Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 0.5F);
-			if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, emptyRange, emptyCast))
+			interactCanvas.SetActive(true);
+			if (Input.GetKeyDown(KeyCode.E))
 			{
+				Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 0.5F);
 				capacity.value = 0F;
 			}
+		}
+		else
+		{
+			interactCanvas.SetActive(false);
 		}
 	}
 
