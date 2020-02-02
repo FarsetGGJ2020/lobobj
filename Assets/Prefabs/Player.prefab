@@ -248,6 +248,7 @@ MonoBehaviour:
     type: 3}
   damageParticle: {fileID: 198499209413112314, guid: f01c1eba69de19e44b04d8d651aaac37,
     type: 3}
+  hoovering: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
   bulletPrefab: {fileID: 1776399499297640290, guid: 131f212ab4a773b4ea1d9c8ca95d6650,
     type: 3}
   fireRate: 0.2
