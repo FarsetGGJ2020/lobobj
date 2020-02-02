@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Ghost : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class Ghost : MonoBehaviour
 	[SerializeField] private Transform particleSpawn;
 	[SerializeField] private Transform meshTransform;
 	[SerializeField] private GhostBullet bulletPrefab;
+
+	[SerializeField] private UnityEvent onDeath;
+	public UnityEvent OnDeath => onDeath;
+
 	private ParticleSystem currentActiveParticles;
 
 	private float fireCoolDown = 0F;
@@ -24,9 +29,18 @@ public class Ghost : MonoBehaviour
 
 	private void Awake()
 	{
+		fireCoolDown = Random.Range(0F, ghostType.fireRate);
+	}
+
+	public void SetTargets(Transform[] sentTargets)
+	{
+		targets = sentTargets;
+	}
+
+	private void Start()
+	{
 		SetTarget();
 		SetSpeed();
-		fireCoolDown = Random.Range(0F, ghostType.fireRate);
 	}
 
 	private void SetSpeed()
@@ -128,6 +142,7 @@ public class Ghost : MonoBehaviour
 		agent.isStopped = true;
 		GameObject deathParticles = Instantiate(deathParticleEffect, meshTransform.transform.position, Quaternion.identity);
 		meshTransform.gameObject.SetActive(false);
+		onDeath.Invoke();
 		Destroy(gameObject);
 		return ghostType.capacitySize;
 	}

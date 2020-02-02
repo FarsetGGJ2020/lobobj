@@ -5,20 +5,51 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    void Awake()
-    {
-        GameEvents.GameEnd += OnGameEnd;
-        Debug.Log("Wakey Wakey");
-        SceneManager.LoadScene(2, LoadSceneMode.Additive);
-    }
+	[SerializeField] private List<Area> areas;
 
-    void OnDestroy() 
-    {
-        GameEvents.GameEnd -= OnGameEnd;
-    }
+	private int areaIndex = 0;
+	public int AreaIndex => areaIndex;
 
-    private void OnGameEnd()
-    {
-        SceneManager.LoadScene(3, LoadSceneMode.Single);
-    }
+	private Area currentArea;
+	public Area CurrentArea => currentArea;
+
+	void Awake()
+	{
+		GameEvents.GameEnd += OnGameEnd;
+		Debug.Log("Wakey Wakey");
+		SceneManager.LoadScene(2, LoadSceneMode.Additive);
+		foreach (Area area in areas)
+		{
+			area.OnAreaClear.AddListener(OnAreaClear);
+		}
+		SetArea();
+	}
+
+	private void OnAreaClear()
+	{
+		areaIndex++;
+		if (areaIndex >= areas.Count)
+		{
+			Debug.LogError("GAME OVER, ALL AREAS CLEARED");
+			GameEvents.OnGameEnd();
+			return;
+		}
+		SetArea();
+	}
+
+	void OnDestroy()
+	{
+		GameEvents.GameEnd -= OnGameEnd;
+	}
+
+	private void OnGameEnd()
+	{
+		SceneManager.LoadScene(3, LoadSceneMode.Single);
+	}
+
+	private void SetArea()
+	{
+		currentArea = areas[areaIndex];
+		currentArea.Spawn();
+	}
 }
