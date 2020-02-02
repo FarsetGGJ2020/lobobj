@@ -9,6 +9,6 @@ public class GhostCountDiplsay : MonoBehaviour
 
 	private void Update()
 	{
-		text.text = "Remaining Ghosts: " + GameManager.Instance.CurrentArea.GhostCount;
+		text.text = "R E M A I N I N G   G H O S T S: " + GameManager.Instance.CurrentArea.GhostCount;
 	}
 }
