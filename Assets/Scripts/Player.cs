@@ -12,6 +12,8 @@ public class Player : Singleton<Player>
 	public LayerMask enemyLayers;
 	public float range;
 	public float damageWidth;
+	[SerializeField] private Transform particleSpawnPoint;
+	[SerializeField] private ParticleSystem hooverParticle;
 	[SerializeField] private PlayerBullet bulletPrefab;
 	[SerializeField] private float fireRate = 2F;
 	[SerializeField] private LayerMask hooverCast;
@@ -19,7 +21,7 @@ public class Player : Singleton<Player>
 	[SerializeField] private Transform robotModel;
 	public AnimationCurve bobbingCurve;
 	[SerializeField] private AudioSource hooverAudio;
-
+	private ParticleSystem spawnedWhirlwind;
 	private float fireCoolDown = 0F;
 
 	private Vector3 RayOrigin => transform.position + Vector3.up;
@@ -82,6 +84,10 @@ public class Player : Singleton<Player>
 	{
 		if (Input.GetMouseButton(1))
 		{
+			if(!spawnedWhirlwind)
+			{
+				spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
+			}
 			hooverAudio.Play();
 			Hoover();
 			return true;

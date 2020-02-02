@@ -8,10 +8,11 @@ public class Ghost : MonoBehaviour
 	[SerializeField] private NavMeshAgent agent;
 	[SerializeField] private Transform[] targets;
 	[SerializeField] private GameObject deathParticleEffect;
+	[SerializeField] private GameObject stunParticle;
 	[SerializeField] private GhostType ghostType;
+	[SerializeField] private Transform particleSpawn;
 	[SerializeField] private Transform meshTransform;
 	[SerializeField] private GhostBullet bulletPrefab;
-	[SerializeField] private Rigidbody rigidbody;
 	private ParticleSystem currentActiveParticles;
 
 	private float fireCoolDown = 0F;
@@ -84,11 +85,12 @@ public class Ghost : MonoBehaviour
 		}
 		if (hitCount >= ghostType.speeds.Length)
 		{
+			GameObject stun = Instantiate(stunParticle, particleSpawn.transform.position, Quaternion.identity);
 			stunned = true;
 			agent.isStopped = true;
 			return;
 		}
-		rigidbody.AddForce(-transform.forward * 5, ForceMode.Impulse);
+		// rigidbody.AddForce(-transform.forward * 5, ForceMode.Impulse);
 		hitCount++;
 		SetSpeed();
 	}
