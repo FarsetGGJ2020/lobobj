@@ -1,4 +1,4 @@
-﻿	using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +32,7 @@ public class Player : Singleton<Player>
 	private Vector3 RayOrigin => transform.position + Vector3.up;
 
 	[SerializeField] private ScriptableFloat capacity;
+	[SerializeField] private AudioSource hooverEmptySound;
 
 	private void Awake()
 	{
@@ -48,7 +49,7 @@ public class Player : Singleton<Player>
 	private void OnDamage(float damage)
 	{
 		spawnedDmg = Instantiate(damageParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
-		rb.AddForce(transform.forward*-1*5f);
+		rb.AddForce(transform.forward * -1 * 5f);
 		health.value -= damage;
 		if (health <= 0)
 		{
@@ -93,6 +94,16 @@ public class Player : Singleton<Player>
 
 	private bool SecondaryFire()
 	{
+		if (capacity >= 100F)
+		{
+			hooverAudio.Stop();
+			if (Input.GetMouseButtonDown(1))
+			{
+				hooverEmptySound.Play();
+				return true;
+			}
+			return false;
+		}
 		if (Input.GetMouseButton(1))
 		{
 			spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
@@ -130,7 +141,7 @@ public class Player : Singleton<Player>
 		if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, hooverRange, hooverCast))
 		{
 			Ghost ghost = hit.collider.GetComponent<Ghost>();
-			if (capacity + ghost.CapacitySize <= 100F)
+			if (capacity <= 100F)
 			{
 				capacity.value += ghost.Die();
 			}
