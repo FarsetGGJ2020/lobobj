@@ -98,7 +98,7 @@ public class Player : Singleton<Player>
 	}
 
 	private bool SecondaryFire()
-	{		
+	{
 		if (capacity >= 100F)
 		{
 			hooverAudio.Stop();
@@ -111,13 +111,17 @@ public class Player : Singleton<Player>
 		}
 		if (Input.GetMouseButton(1))
 		{
-			if(!hooverholder)
+			if (!hooverholder)
 			{
 				hooverholder = GameObject.Instantiate(hoovering, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform).gameObject;
 			}
 			hooverAudio.Play();
 			Hoover();
 			return true;
+		}
+		else
+		{
+			Destroy(hooverholder);
 		}
 		hooverAudio.Stop();
 		return false;
@@ -145,6 +149,10 @@ public class Player : Singleton<Player>
 	private void Hoover()
 	{
 		Vector3 direction = Vector3.Normalize(WorldMouse.GetWorldMouse() - transform.position);
+		if (hooverholder)
+		{
+			hooverholder.transform.LookAt(RayOrigin + hooverRange * direction);
+		}
 		Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 1000);
 		if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, hooverRange, hooverCast))
 		{
