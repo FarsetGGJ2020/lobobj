@@ -76,7 +76,7 @@ public class Player : Singleton<Player>
 	public void Update()
 	{
 		Vector3[] positionArray = new Vector3[2];
-		positionArray[0] =transform.position;           
+		positionArray[0] = particleSpawnPoint.position;           
 		positionArray[1] = henry.transform.position;
 		line.positionCount = 2;
 		line.SetPositions(positionArray);
