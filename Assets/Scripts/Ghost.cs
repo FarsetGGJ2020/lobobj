@@ -9,7 +9,8 @@ public class Ghost : MonoBehaviour
 	[SerializeField] private NavMeshAgent agent;
 	[SerializeField] private Transform[] targets;
 	[SerializeField] private GameObject deathParticleEffect;
-	[SerializeField] private GameObject stunParticle;
+	[SerializeField] private ParticleSystem stunParticle;
+	[SerializeField] private GameObject hitParticle;
 	[SerializeField] private GhostType ghostType;
 	[SerializeField] private Transform particleSpawn;
 	[SerializeField] private Transform meshTransform;
@@ -18,7 +19,7 @@ public class Ghost : MonoBehaviour
 	[SerializeField] private UnityEvent onDeath;
 	public UnityEvent OnDeath => onDeath;
 
-	private ParticleSystem currentActiveParticles;
+	private GameObject currentActiveParticles;
 
 	private float fireCoolDown = 0F;
 	private int hitCount = 0;
@@ -79,6 +80,7 @@ public class Ghost : MonoBehaviour
 			{
 				return;
 			}
+			Destroy(currentActiveParticles);
 			stunned = false;
 			agent.isStopped = false;
 			hitCount = 0;
@@ -101,12 +103,14 @@ public class Ghost : MonoBehaviour
 		}
 		if (hitCount >= ghostType.speeds.Length)
 		{
-			GameObject stun = Instantiate(stunParticle, particleSpawn.transform.position, Quaternion.identity);
+			ParticleSystem vortex = Instantiate(stunParticle, particleSpawn.transform.position, Quaternion.identity, particleSpawn);
+			currentActiveParticles = vortex.transform.gameObject;
 			stunned = true;
 			agent.isStopped = true;
 			return;
 		}
-		// rigidbody.AddForce(-transform.forward * 5, ForceMode.Impulse);
+		GameObject hit = Instantiate(hitParticle, particleSpawn.transform.position, Quaternion.identity, particleSpawn);
+			
 		hitCount++;
 		SetSpeed();
 	}

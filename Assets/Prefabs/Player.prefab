@@ -57,9 +57,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278555159812903438}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.497444, y: 0.497444, z: 0.788092}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.497444, y: 0.49744448, z: 0.788093}
   m_Children:
   - {fileID: 5374636226362418984}
   - {fileID: 971802766147678853}
@@ -245,7 +245,10 @@ MonoBehaviour:
   range: 5
   damageWidth: 1
   particleSpawnPoint: {fileID: 4388223476812724970}
-  hooverParticle: {fileID: 19800000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+  hooverParticle: {fileID: 8291250514806595059, guid: e4a87a2d1975d404b9544ccd4421534d,
+    type: 3}
+  damageParticle: {fileID: 198499209413112314, guid: f01c1eba69de19e44b04d8d651aaac37,
+    type: 3}
   bulletPrefab: {fileID: 1776399499297640290, guid: 131f212ab4a773b4ea1d9c8ca95d6650,
     type: 3}
   fireRate: 0.2
@@ -258,6 +261,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 131072
   emptyRange: 3
+  rb: {fileID: 2358927630192485030}
   bobbingCurve:
     serializedVersion: 2
     m_Curve:
@@ -5222,9 +5226,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5624692611516832177}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 6314224529698746392}
   m_RootOrder: 0

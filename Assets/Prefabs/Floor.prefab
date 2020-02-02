@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9d1bf793bf22748b7a02557bb5e208f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9d1bf793bf22748b7a02557bb5e208f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
