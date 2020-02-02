@@ -146,21 +146,13 @@ public class Player : Singleton<Player>
 			{
 				spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 				capacity.value += ghost.Die();
-			}else
+			}
+			else
 			{
 				// Capacity full, fail hoover
 				ParticleSystem spark = GameObject.Instantiate(sparkFail, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 			}
 		}
-	}
-
-	private void OnDrawGizmos()
-	{
-		// Gizmos.color = Color.blue;
-		// Gizmos.DrawSphere(WorldMouse.Position, 0.5F);
-		// Gizmos.DrawLine(WorldMouse.StartPositon, WorldMouse.Position);
-		// Gizmos.color = Color.red;
-		// Gizmos.DrawLine(transform.position, WorldMouse.Position);
 	}
 }
 
