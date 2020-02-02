@@ -9,7 +9,17 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: wall_basic002
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stairs
+    second: {fileID: 2100000, guid: 6c35360252bc64872b46f14b6078a616, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wall_flat01
+    second: {fileID: 2800000, guid: 16828e8ae49144a87a229663c38b0ae3, type: 3}
   materials:
     importMaterials: 1
     materialName: 0

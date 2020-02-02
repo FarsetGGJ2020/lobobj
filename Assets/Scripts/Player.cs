@@ -127,7 +127,7 @@ public class Player : Singleton<Player>
 	private void Hoover()
 	{
 		Vector3 direction = Vector3.Normalize(WorldMouse.GetWorldMouse() - transform.position);
-		Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 0.5F);
+		Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 1000);
 		if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, hooverRange, hooverCast))
 		{
 			Ghost ghost = hit.collider.GetComponent<Ghost>();

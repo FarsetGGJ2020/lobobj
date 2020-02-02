@@ -5,6 +5,7 @@ using UnityEngine;
 public class GhostBullet : BaseBullet
 {
 	[SerializeField] private Rigidbody rb;
+	[SerializeField] private GameObject destroyedParticle;
 
 	protected override void Awake()
 	{
@@ -21,9 +22,14 @@ public class GhostBullet : BaseBullet
 		{
 			GameEvents.PlayerDamage(bulletType.damage);
 		}
+
 		Destroy(gameObject);
 	}
 
+	public void Fizzle(Vector3 pos)
+	{
+		GameObject particle = Instantiate(destroyedParticle, pos, Quaternion.identity);
+	}
 	private void OnDrawGizmos()
 	{
 		// Gizmos.color = Color.blue;

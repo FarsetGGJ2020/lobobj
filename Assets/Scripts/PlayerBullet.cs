@@ -27,6 +27,12 @@ public class PlayerBullet : BaseBullet
 				ghost.Damage(bulletType.damage);
 			}
 		}
+		// Destroy bullets
+		if(collision.gameObject.layer == 16)
+		{
+			GhostBullet bullet = collision.gameObject.GetComponent<GhostBullet>();
+			bullet.Fizzle(collision.contacts[0].point);
+		}
 		Destroy(gameObject);
 	}
 
