@@ -101,6 +101,10 @@ public class Player : Singleton<Player>
 	{
 		if (capacity >= 100F)
 		{
+			if (hooverholder)
+			{
+				Destroy(hooverholder);
+			}
 			hooverAudio.Stop();
 			if (Input.GetMouseButtonDown(1))
 			{
@@ -121,7 +125,10 @@ public class Player : Singleton<Player>
 		}
 		else
 		{
-			Destroy(hooverholder);
+			if (hooverholder)
+			{
+				Destroy(hooverholder);
+			}
 		}
 		hooverAudio.Stop();
 		return false;
