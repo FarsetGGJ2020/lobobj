@@ -18,6 +18,7 @@ public class Player : Singleton<Player>
 	[SerializeField] private PlayerBullet bulletPrefab;
 	[SerializeField] private float fireRate = 2F;
 	[SerializeField] private LayerMask hooverCast;
+	[SerializeField] private ParticleSystem sparkFail;
 	[SerializeField] private float hooverRange = 2F;
 	[SerializeField] private Transform robotModel;
 	[SerializeField] private LayerMask emptyCast;
@@ -96,7 +97,6 @@ public class Player : Singleton<Player>
 	{
 		if (Input.GetMouseButton(1))
 		{
-			spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 			hooverAudio.Play();
 			Hoover();
 			return true;
@@ -133,7 +133,12 @@ public class Player : Singleton<Player>
 			Ghost ghost = hit.collider.GetComponent<Ghost>();
 			if (capacity + ghost.CapacitySize <= 100F)
 			{
+				spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 				capacity.value += ghost.Die();
+			}else
+			{
+				// Capacity full, fail hoover
+				ParticleSystem spark = GameObject.Instantiate(sparkFail, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 			}
 		}
 	}

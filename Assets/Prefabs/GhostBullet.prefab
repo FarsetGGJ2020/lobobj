@@ -65,7 +65,7 @@ MonoBehaviour:
   bulletType: {fileID: 11400000, guid: 743ad1cfe33b92a4d9e58476256113b5, type: 2}
   audioSource: {fileID: 1714739822724995671}
   rb: {fileID: 4513055407727046757}
-  destroyedParticle: {fileID: 0}
+  destroyedParticle: {fileID: 100000, guid: 979632a27455af442bd2d8f36eb0ffce, type: 3}
 --- !u!82 &1714739822724995671
 AudioSource:
   m_ObjectHideFlags: 0
