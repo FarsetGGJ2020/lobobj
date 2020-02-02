@@ -15,6 +15,7 @@ public class Player : Singleton<Player>
 	[SerializeField] private Transform particleSpawnPoint;
 	[SerializeField] private ParticleSystem hooverParticle;
 	[SerializeField] private ParticleSystem damageParticle;
+	[SerializeField] private ParticleSystem hoovering;
 	[SerializeField] private PlayerBullet bulletPrefab;
 	[SerializeField] private float fireRate = 2F;
 	[SerializeField] private LayerMask hooverCast;
@@ -34,6 +35,8 @@ public class Player : Singleton<Player>
 
 	[SerializeField] private ScriptableFloat capacity;
 	[SerializeField] private AudioSource hooverEmptySound;
+
+	private GameObject hooverholder;
 
 	private void Awake()
 	{
@@ -95,7 +98,7 @@ public class Player : Singleton<Player>
 	}
 
 	private bool SecondaryFire()
-	{
+	{		
 		if (capacity >= 100F)
 		{
 			hooverAudio.Stop();
@@ -108,6 +111,10 @@ public class Player : Singleton<Player>
 		}
 		if (Input.GetMouseButton(1))
 		{
+			if(!hooverholder)
+			{
+				hooverholder = GameObject.Instantiate(hoovering, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform).gameObject;
+			}
 			hooverAudio.Play();
 			Hoover();
 			return true;

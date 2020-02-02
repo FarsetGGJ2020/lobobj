@@ -10,7 +10,22 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: hangar_door
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #188'
+    second: {fileID: 2100000, guid: d49072dc0f1ec44609cc74924dfeb6d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door_inside
+    second: {fileID: 2100000, guid: f5eb63aac52594c538789e4769b81489, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wall_flat01
+    second: {fileID: 2800000, guid: 0c256ae98e62b4cfeb41af46f535f98a, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
