@@ -78,7 +78,7 @@ public class Player : Singleton<Player>
 	public void Update()
 	{
 		Vector3[] positionArray = new Vector3[2];
-		positionArray[0] = particleSpawnPoint.position;           
+		positionArray[0] = particleSpawnPoint.position;
 		positionArray[1] = henry.transform.position;
 		line.positionCount = 2;
 		line.SetPositions(positionArray);
@@ -110,7 +110,6 @@ public class Player : Singleton<Player>
 	{
 		if (capacity >= 100F)
 		{
-			ParticleSystem spark = GameObject.Instantiate(sparkFail, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 			if (hooverholder)
 			{
 				Destroy(hooverholder);
@@ -118,6 +117,7 @@ public class Player : Singleton<Player>
 			hooverAudio.Stop();
 			if (Input.GetMouseButtonDown(1))
 			{
+				ParticleSystem spark = GameObject.Instantiate(sparkFail, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 				hooverEmptySound.Play();
 				return true;
 			}
