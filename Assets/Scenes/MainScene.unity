@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+  m_AmbientSkyColor: {r: 4, g: 1.7821375, b: 0.8490567, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -2116,6 +2116,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9184c3654fa2e4bbb818a651d6fe47c0, type: 3}
+--- !u!4 &6999819471622084971 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6314224529698746392, guid: 9184c3654fa2e4bbb818a651d6fe47c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6999819471622084970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8353232603642508054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2136,7 +2142,7 @@ PrefabInstance:
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
@@ -2146,7 +2152,7 @@ PrefabInstance:
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.38268343
+      value: 0.4756242
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
@@ -2161,7 +2167,7 @@ PrefabInstance:
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 0.87964857
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
@@ -2171,7 +2177,7 @@ PrefabInstance:
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 45
+      value: 56.8
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280472, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
@@ -2215,23 +2221,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280476, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
-      propertyPath: near clip plane
-      value: -11.95
+      propertyPath: m_ClearFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280476, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
-      propertyPath: orthographic size
-      value: 9.3
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280476, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
-      propertyPath: far clip plane
-      value: 50
+      propertyPath: m_BackGroundColor.g
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280476, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
-      propertyPath: far clip plane
-      value: 50
+      propertyPath: m_BackGroundColor.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6239678410059280454, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
         type: 3}
@@ -2243,8 +2249,29 @@ PrefabInstance:
       propertyPath: m_ShowCustomSorter
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6239678410059280474, guid: 9985cd0e6ef6b489ebb5f55762cd55f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9985cd0e6ef6b489ebb5f55762cd55f5, type: 3}
+--- !u!1 &8353232603642508055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6239678410059280473, guid: 9985cd0e6ef6b489ebb5f55762cd55f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8353232603642508054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8353232603642508056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8353232603642508055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa70b5553ac040f2b91176aa879a6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 6999819471622084971}
+  smoothing: 5
 --- !u!1001 &9021885185160679498
 PrefabInstance:
   m_ObjectHideFlags: 0

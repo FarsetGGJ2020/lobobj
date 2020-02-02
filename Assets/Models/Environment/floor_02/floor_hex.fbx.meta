@@ -1,25 +1,20 @@
 fileFormatVersion: 2
-guid: 417090cf74e304f4ebb11488f20dfe78
+guid: 1dfccac1883224ee090b696ec74ade00
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: stairs
+    2100000: 'Material #221'
     2300000: //RootNode
     3300000: //RootNode
-    4300000: wall_basic002
+    4300000: floor_hex
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: stairs
-    second: {fileID: 2100000, guid: 6c35360252bc64872b46f14b6078a616, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: wall_flat01
-    second: {fileID: 2800000, guid: 16828e8ae49144a87a229663c38b0ae3, type: 3}
+      name: floor_nrms
+    second: {fileID: 2800000, guid: 94735475d261c4f7786978e8d39945cc, type: 3}
   materials:
     importMaterials: 1
     materialName: 0

@@ -18,6 +18,7 @@ public class Player : Singleton<Player>
 	[SerializeField] private PlayerBullet bulletPrefab;
 	[SerializeField] private float fireRate = 2F;
 	[SerializeField] private LayerMask hooverCast;
+	[SerializeField] private ParticleSystem sparkFail;
 	[SerializeField] private float hooverRange = 2F;
 	[SerializeField] private Transform robotModel;
 	[SerializeField] private LayerMask emptyCast;
@@ -75,6 +76,9 @@ public class Player : Singleton<Player>
 			PrimaryFire();
 			EmptyHoover();
 		}
+
+		robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length)) / 6, robotModel.position.z);
+		transform.LookAt(WorldMouse.GetWorldMouse());
 	}
 
 	private void IncreaseTimers()
@@ -88,8 +92,6 @@ public class Player : Singleton<Player>
 		{
 			Shoot();
 		}
-		robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length)) / 6, robotModel.position.z);
-
 	}
 
 	private bool SecondaryFire()
@@ -106,7 +108,6 @@ public class Player : Singleton<Player>
 		}
 		if (Input.GetMouseButton(1))
 		{
-			spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 			hooverAudio.Play();
 			Hoover();
 			return true;
@@ -137,13 +138,18 @@ public class Player : Singleton<Player>
 	private void Hoover()
 	{
 		Vector3 direction = Vector3.Normalize(WorldMouse.GetWorldMouse() - transform.position);
-		Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 0.5F);
+		Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 1000);
 		if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, hooverRange, hooverCast))
 		{
 			Ghost ghost = hit.collider.GetComponent<Ghost>();
 			if (capacity <= 100F)
 			{
+				spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 				capacity.value += ghost.Die();
+			}else
+			{
+				// Capacity full, fail hoover
+				ParticleSystem spark = GameObject.Instantiate(sparkFail, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 			}
 		}
 	}
