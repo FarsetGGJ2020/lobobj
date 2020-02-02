@@ -19,6 +19,9 @@ public class Player : Singleton<Player>
 	[SerializeField] private LayerMask hooverCast;
 	[SerializeField] private float hooverRange = 2F;
 	[SerializeField] private Transform robotModel;
+	[SerializeField] private LayerMask emptyCast;
+	[SerializeField] private float emptyRange = 3F;
+
 	public AnimationCurve bobbingCurve;
 	[SerializeField] private AudioSource hooverAudio;
 	private ParticleSystem spawnedWhirlwind;
@@ -26,9 +29,12 @@ public class Player : Singleton<Player>
 
 	private Vector3 RayOrigin => transform.position + Vector3.up;
 
+	[SerializeField] private ScriptableFloat capacity;
+
 	private void Awake()
 	{
 		health.value = startingHealth;
+		capacity.value = 0F;
 		GameEvents.PlayerDamage += OnDamage;
 	}
 
@@ -62,6 +68,7 @@ public class Player : Singleton<Player>
 		if (!SecondaryFire())
 		{
 			PrimaryFire();
+			EmptyHoover();
 		}
 	}
 
@@ -84,7 +91,7 @@ public class Player : Singleton<Player>
 	{
 		if (Input.GetMouseButton(1))
 		{
-			if(!spawnedWhirlwind)
+			if (!spawnedWhirlwind)
 			{
 				spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 			}
@@ -94,6 +101,19 @@ public class Player : Singleton<Player>
 		}
 		hooverAudio.Stop();
 		return false;
+	}
+
+	private void EmptyHoover()
+	{
+		if (Input.GetKeyDown(KeyCode.E))
+		{
+			Vector3 direction = Vector3.Normalize(WorldMouse.GetWorldMouse() - transform.position);
+			Debug.DrawLine(RayOrigin, RayOrigin + hooverRange * direction, Color.red, 0.5F);
+			if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, emptyRange, emptyCast))
+			{
+				capacity.value = 0F;
+			}
+		}
 	}
 
 	private void Shoot()
@@ -109,7 +129,10 @@ public class Player : Singleton<Player>
 		if (Physics.Raycast(RayOrigin, direction, out RaycastHit hit, hooverRange, hooverCast))
 		{
 			Ghost ghost = hit.collider.GetComponent<Ghost>();
-			ghost.Die();
+			if (capacity + ghost.CapacitySize <= 100F)
+			{
+				capacity.value += ghost.Die();
+			}
 		}
 	}
 

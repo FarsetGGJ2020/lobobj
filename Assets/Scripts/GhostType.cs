@@ -11,4 +11,5 @@ public class GhostType : ScriptableObject
 	public float fireRate;
 	public float[] speeds;
 	public float hitWindow;
+	public float capacitySize = 25F;
 }

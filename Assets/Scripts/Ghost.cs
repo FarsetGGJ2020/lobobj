@@ -20,6 +20,8 @@ public class Ghost : MonoBehaviour
 	private float hitTimer;
 	[SerializeField] private bool stunned = false;
 
+	public float CapacitySize => ghostType.capacitySize;
+
 	private void Awake()
 	{
 		SetTarget();
@@ -116,16 +118,17 @@ public class Ghost : MonoBehaviour
 	}
 
 	[ContextMenu("Die")]
-	public void Die()
+	public float Die()
 	{
 		if (!stunned)
 		{
-			return;
+			return 0F;
 		}
 		stunned = true;
 		agent.isStopped = true;
 		GameObject deathParticles = Instantiate(deathParticleEffect, meshTransform.transform.position, Quaternion.identity);
 		meshTransform.gameObject.SetActive(false);
 		Destroy(gameObject);
+		return ghostType.capacitySize;
 	}
 }
