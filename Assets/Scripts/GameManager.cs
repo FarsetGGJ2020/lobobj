@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
 		if (areaIndex >= areas.Count)
 		{
 			Debug.LogError("GAME OVER, ALL AREAS CLEARED");
-			GameEvents.OnGameEnd();
+			SceneManager.LoadScene(4, LoadSceneMode.Single);
 			return;
 		}
 		SetArea();
@@ -44,7 +44,7 @@ public class GameManager : Singleton<GameManager>
 
 	private void OnGameEnd()
 	{
-		SceneManager.LoadScene(4, LoadSceneMode.Single);
+		SceneManager.LoadScene(3, LoadSceneMode.Single);
 	}
 
 	private void SetArea()
