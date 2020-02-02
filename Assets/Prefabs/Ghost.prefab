@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422792077503725827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6735685638366602742}
@@ -198,12 +198,18 @@ MonoBehaviour:
   - {fileID: 0}
   deathParticleEffect: {fileID: 5497938733449498520, guid: dde830669967a445e948fe566925b7c1,
     type: 3}
-  stunParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  stunParticle: {fileID: 19800002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
+  hitParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   ghostType: {fileID: 11400000, guid: bf141aacf30564ab0819538feb6cbe07, type: 2}
   particleSpawn: {fileID: 8584395316284777419}
   meshTransform: {fileID: 6735685638366602742}
   bulletPrefab: {fileID: 4847659497378006730, guid: 0828c8c0acc3304419f928325d6912a4,
     type: 3}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   stunned: 0
 --- !u!195 &1649510430
 NavMeshAgent:
@@ -237,7 +243,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.74
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}

@@ -10,6 +10,7 @@ public class PlayerBullet : BaseBullet
 	{
 		base.Awake();
 		target = WorldMouse.GetWorldMouse();
+		transform.LookAt(target);
 		target.y = bulletType.heightOffset;
 		direction = Vector3.Normalize(target - OffsetPosition);
 		rb.velocity = bulletType.velocityScalor * direction;

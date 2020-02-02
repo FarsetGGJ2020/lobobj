@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿	using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,7 @@ public class Player : Singleton<Player>
 	public float damageWidth;
 	[SerializeField] private Transform particleSpawnPoint;
 	[SerializeField] private ParticleSystem hooverParticle;
+	[SerializeField] private ParticleSystem damageParticle;
 	[SerializeField] private PlayerBullet bulletPrefab;
 	[SerializeField] private float fireRate = 2F;
 	[SerializeField] private LayerMask hooverCast;
@@ -21,10 +22,11 @@ public class Player : Singleton<Player>
 	[SerializeField] private Transform robotModel;
 	[SerializeField] private LayerMask emptyCast;
 	[SerializeField] private float emptyRange = 3F;
+	[SerializeField] private Rigidbody rb;
 
 	public AnimationCurve bobbingCurve;
 	[SerializeField] private AudioSource hooverAudio;
-	private ParticleSystem spawnedWhirlwind;
+	private ParticleSystem spawnedWhirlwind, spawnedDmg;
 	private float fireCoolDown = 0F;
 
 	private Vector3 RayOrigin => transform.position + Vector3.up;
@@ -45,6 +47,8 @@ public class Player : Singleton<Player>
 
 	private void OnDamage(float damage)
 	{
+		spawnedDmg = Instantiate(damageParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
+		rb.AddForce(transform.forward*-1*5f);
 		health.value -= damage;
 		if (health <= 0)
 		{
@@ -91,10 +95,7 @@ public class Player : Singleton<Player>
 	{
 		if (Input.GetMouseButton(1))
 		{
-			if (!spawnedWhirlwind)
-			{
-				spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
-			}
+			spawnedWhirlwind = GameObject.Instantiate(hooverParticle, particleSpawnPoint.position, Quaternion.identity, particleSpawnPoint.transform);
 			hooverAudio.Play();
 			Hoover();
 			return true;
