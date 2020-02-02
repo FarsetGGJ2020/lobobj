@@ -9,6 +9,6 @@ public class ZoneText : MonoBehaviour
 
 	private void Update()
 	{
-		text.text = "Zone: " + GameManager.Instance.CurrentArea.AreaName;
+		text.text = "R E P A I R  Z O N E  :  " + GameManager.Instance.CurrentArea.AreaName;
 	}
 }

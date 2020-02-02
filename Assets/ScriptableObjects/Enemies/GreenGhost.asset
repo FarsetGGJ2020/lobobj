@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7deeb0f13ba342efabe1e83a5f88ee1, type: 3}
   m_Name: GreenGhost
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 7
   strength: 2
   weakness: 0
-  fireRate: 2
+  fireRate: 1
   speeds:
-  - 2
-  - 1
+  - 5
+  - 3
   hitWindow: 3
+  capacitySize: 25

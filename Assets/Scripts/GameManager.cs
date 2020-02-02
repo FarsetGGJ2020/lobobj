@@ -44,7 +44,7 @@ public class GameManager : Singleton<GameManager>
 
 	private void OnGameEnd()
 	{
-		SceneManager.LoadScene(3, LoadSceneMode.Single);
+		SceneManager.LoadScene(4, LoadSceneMode.Single);
 	}
 
 	private void SetArea()

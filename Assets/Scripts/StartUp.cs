@@ -9,4 +9,9 @@ public class StartUp : MonoBehaviour
     {
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
 }

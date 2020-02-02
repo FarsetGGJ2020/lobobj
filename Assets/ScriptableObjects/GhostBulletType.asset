@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GhostBulletType
   m_EditorClassIdentifier: 
   heightOffset: 1
-  velocityScalor: 6
+  velocityScalor: 10
   lifeTime: 5
   damage: 5
   bounces: 1
