@@ -74,6 +74,9 @@ public class Player : Singleton<Player>
 			PrimaryFire();
 			EmptyHoover();
 		}
+
+		robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length)) / 6, robotModel.position.z);
+		transform.LookAt(WorldMouse.GetWorldMouse());
 	}
 
 	private void IncreaseTimers()
@@ -87,8 +90,6 @@ public class Player : Singleton<Player>
 		{
 			Shoot();
 		}
-		robotModel.position = new Vector3(robotModel.position.x, bobbingCurve.Evaluate((Time.time % bobbingCurve.length)) / 6, robotModel.position.z);
-
 	}
 
 	private bool SecondaryFire()
